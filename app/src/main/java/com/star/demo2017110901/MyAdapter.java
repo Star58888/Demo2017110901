@@ -55,7 +55,7 @@ public class MyAdapter extends BaseAdapter {
             Log.d("GETVIEW" , "position" + position);
             //自訂的
             LayoutInflater inflater = LayoutInflater.from(context);
-            if(convertView == null)
+            if(convertView == null)    //Android 回收機制 , 後面就不用重新new
             {
                 convertView = inflater.inflate(R.layout.myitem, null);
             }
