@@ -46,7 +46,8 @@ public class MyAdapter extends BaseAdapter {
         }
 
         @Override
-        public View getView(final int position, final View convertView, ViewGroup parent) {
+        public View getView(final int position,  View convertView, ViewGroup parent) {
+
             //系統有的
     //        TextView tv = new TextView(context);
     //        tv.setText("Hello World" + position);
@@ -54,10 +55,14 @@ public class MyAdapter extends BaseAdapter {
             Log.d("GETVIEW" , "position" + position);
             //自訂的
             LayoutInflater inflater = LayoutInflater.from(context);
-            View v = inflater.inflate(R.layout.myitem, null);
-            TextView tv = (TextView) v.findViewById(R.id.textView);
-            Button btn = (Button) v.findViewById(R.id.button1);
-            CheckBox chk = (CheckBox) v.findViewById(R.id.checkbox);
+            if(convertView == null)
+            {
+                convertView = inflater.inflate(R.layout.myitem, null);
+            }
+
+            TextView tv = (TextView) convertView.findViewById(R.id.textView);
+            Button btn = (Button) convertView.findViewById(R.id.button1);
+            CheckBox chk = (CheckBox) convertView.findViewById(R.id.checkbox);
             final String msg = str[position];
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -74,7 +79,7 @@ public class MyAdapter extends BaseAdapter {
             });
             chk.setChecked(b[position]);
             tv.setText(str[position] );
-            return v;
+            return convertView;
 
     }
 
