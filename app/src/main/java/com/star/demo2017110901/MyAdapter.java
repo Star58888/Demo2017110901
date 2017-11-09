@@ -21,7 +21,8 @@ public class MyAdapter extends BaseAdapter {
     Context context ;
     String str [];
 
-    boolean [] b;
+    public boolean [] b;
+
     public MyAdapter(Context context , String[] str)
         {
             this.context = context;
