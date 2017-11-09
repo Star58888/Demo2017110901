@@ -36,12 +36,12 @@ public class MyAdapter extends BaseAdapter {
         }
 
         @Override
-        public Object getItem(int i) {
+        public Object getItem(int position) {
             return null;
         }
 
         @Override
-        public long getItemId(int i) {
+        public long getItemId(int position) {
             return 0;
         }
 
@@ -53,7 +53,8 @@ public class MyAdapter extends BaseAdapter {
             Log.d("GETVIEW", "position:" + position);
             ViewHolder holder;
             LayoutInflater inflater = LayoutInflater.from(context);
-            if (convertView == null) {
+            if (convertView == null)   //Android 回收機制 , 後面就不用重新new
+            {
                 convertView = inflater.inflate(R.layout.myitem, null);
                 holder = new ViewHolder();
                 holder.tv = (TextView) convertView.findViewById(R.id.textView);
