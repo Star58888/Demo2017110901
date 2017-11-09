@@ -1,19 +1,22 @@
 package com.star.demo2017110901;
 
-import android.Manifest;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
-public class MainActivity extends AppCompatActivity {
 
+public class MainActivity extends AppCompatActivity {
+    ListView lv;
+    String names[] = {"Bob", "John", "Mary", "Jane", "Peter", "Amy"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ListView lv = findViewById(R.id.listView);
 
-        MyAdapter adapter = new MyAdapter(MainActivity.this);
+        lv = (ListView) findViewById(R.id.listView);
+
+        MyAdapter adapter = new MyAdapter(MainActivity.this, names);
         lv.setAdapter(adapter);
     }
 }
